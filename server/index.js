@@ -12,7 +12,7 @@ import authRoutes from "./routes/auth.js";
 import usersRoutes from "./routes/users.js";
 import postsRoutes from "./routes/posts.js";
 
-// import { errorHandler, notFound } from "./middlewares/error-middleware.js";
+import { errorHandler, notFound } from "./middlewares/error-middleware.js";
 
 // CONFIGURATION
 const __filename = fileURLToPath(import.meta.url);
@@ -52,8 +52,8 @@ app.use("/users", usersRoutes);
 app.use("/posts", postsRoutes);
 
 // Error handling routes
-// app.use(notFound);
-// app.use(errorHandler);
+app.use(notFound);
+app.use(errorHandler);
 
 const CONNECTION_URL = process.env.MONGO_DB_URI;
 const PORT = process.env.PORT || 5000;

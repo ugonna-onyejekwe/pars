@@ -4,8 +4,8 @@ import { editUser, getUser, getAllUsers } from "../controllers/users.js";
 
 const router = express.Router();
 
-router.get("/", getAllUsers);
-router.get("/:id", getUser);
-app.patch("/:id", authMiddleware, editUser);
+router.get("/", authMiddleware, getAllUsers);
+router.get("/:id", authMiddleware, getUser);
+router.patch("/:id", authMiddleware, editUser);
 
 export default router;

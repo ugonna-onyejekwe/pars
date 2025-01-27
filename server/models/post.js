@@ -14,18 +14,30 @@ const postSchema = new Schema(
       type: String,
       required: true,
     },
-    location: String,
     description: String,
-    picturePath: String,
+    picturePath: {
+      public_id: {
+        type: String,
+        default: "",
+      },
+      url: {
+        type: String,
+        default: "",
+      },
+    },
     userPicturePath: String,
     likes: {
       type: Map,
       of: Boolean,
     },
-    comments: {
-      type: Array,
-      default: [],
-    },
+    comments: [
+      {
+        username: { type: String, required: true },
+        comment: { type: String, required: true },
+        userId: { type: String, required: true },
+        createdAt: { type: Date, default: Date.now },
+      },
+    ],
   },
   { timestamps: true }
 );

@@ -26,8 +26,14 @@ const UserSchema = new Schema(
       min: 5,
     },
     picturePath: {
-      type: String,
-      default: "",
+      public_id: {
+        type: String,
+        default: "",
+      },
+      url: {
+        type: String,
+        default: "",
+      },
     },
     friends: {
       type: Array,

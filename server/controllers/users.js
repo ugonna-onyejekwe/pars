@@ -1,4 +1,4 @@
-import { HttpError } from "../models/error-modal";
+import { HttpError } from "../models/error-modal.js";
 import User from "../models/user.js";
 
 export const getAllUsers = async (req, res) => {
